@@ -8,4 +8,5 @@ ui.xml
 
 startup.lua
 spellAnn.lua
-ui.lua
+slashCmd.lua
+mythicPlus.lua
