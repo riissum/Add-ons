@@ -1,0 +1,11 @@
+## Interface: 70300
+## Title: git_Mads
+## Author: Mads Riis Rasmussen
+## Notes: Personal training Lua scripts.
+## Version: 0.1
+
+ui.xml
+
+startup.lua
+main.lua
+slashCmd.lua

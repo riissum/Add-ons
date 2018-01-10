@@ -1,0 +1,49 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Frame name="MadsFrame" parent="UIParent" toplevel="true" enableMouse="true" hidden="true">
+		<Size>
+			<AbsDimension x="200" y="200" />
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER" />
+		</Anchors>
+		<Layers>
+			<Layer>
+				<Texture>
+					<Size x="100" y="100" />
+					<Color a="0.5" r="1" g="1" b="1" />
+				</Texture>
+				<FontString name="$parentFontString" font="Fonts\FRIZQT__.TTF" text="Mads AddOn" justifyH="LEFT" justifyV="TOP">
+					<Color r="1" g="0.8" b="1" a="1"/>
+					<FontHeight val="24"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" x="20" y="-20" />
+					</Anchors>
+					<Shadow>
+						<Offset x="1" y="1" />
+						<Color r="0" g="0" b="0"/>
+					</Shadow>
+				</FontString>
+			</Layer>
+			<Layer>
+				<Texture>
+					<Size x="30" y="30" />
+					<Color a="0.5" r="0" g="1" b="0" />
+				</Texture>
+				<FontString name="$parentFontString" font="Fonts\FRIZQT__.TTF" text="Mads AddOn" justifyH="LEFT" justifyV="TOP">
+					<Color r="1" g="0.8" b="1" a="1"/>
+					<FontHeight val="12"/>
+					<Anchors>
+						<Anchor point="CENTER" />
+					</Anchors>
+					<Shadow>
+						<Offset x="1" y="1" />
+						<Color r="0" g="0" b="0"/>
+					</Shadow>
+				</FontString>
+				<Anchors>
+					<Anchor point="BOTTOMRIGHT" />
+				</Anchors>
+			</Layer>
+		</Layers>
+	</Frame>
+ </Ui>
