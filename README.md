@@ -1,1 +1,1 @@
-"# Personal multi-addon for WoW" 
+# Personal multi-addon for WoW

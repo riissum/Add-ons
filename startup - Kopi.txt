@@ -1,6 +1,0 @@
-local frame = CreateFrame("FRAME", "Mads AddOn");
-frame:RegisterEvent("PLAYER_ENTERING_WORLD");
-local function eventHandler(self, event, ...)
-	RaidNotice_AddMessage(RaidWarningFrame,"Welcome back, " .. UnitName("player") .. "!",ChatTypeInfo["RAID_WARNING"]);
-end
-frame:SetScript("OnEvent", eventHandler);
