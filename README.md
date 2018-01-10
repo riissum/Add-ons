@@ -5,4 +5,4 @@
 * _ui.lua_ (!) contains all the functionalities for the UI.
 * _ui.xml_ (!) contains all the markup for the UI.
 
-<p color="red">_(!)</p> : This has not yet been fully implemented._
+<span style="color:red;">_(!)</span> : This has not yet been fully implemented._
