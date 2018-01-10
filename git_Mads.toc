@@ -7,5 +7,5 @@
 ui.xml
 
 startup.lua
-main.lua
-slashCmd.lua
+spellAnn.lua
+ui.lua
