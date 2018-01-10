@@ -5,5 +5,6 @@
 * _ui.lua_ (!) contains all the functionalities for the UI.
 * _ui.xml_ (!) contains all the markup for the UI.
 
-```diff
-- _(!)_ ``` _: This has not yet been fully implemented._
+```html
+<font color="red">_(!)</font> : This has not yet been fully implemented._
+```
