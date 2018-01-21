@@ -36,7 +36,6 @@ EventFrame:SetScript("OnEvent", function(self, event, ...)
 				intrAnn(xSpellId, destName)
 				
 			end
-			
 		end
 		
 	end

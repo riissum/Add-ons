@@ -8,5 +8,8 @@ ui.xml
 
 startup.lua
 spellAnn.lua
-slashCmd.lua
 mythicPlus.lua
+equipment.lua
+arena.lua
+slashCmd.lua
+ClassHelper.lua

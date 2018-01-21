@@ -6,6 +6,8 @@
 * **_ui.xml_** (!) contains all the markup for the UI.
 * **_spellAnn.lua_** announces incoming/completed resurrections, as well as successful interrupts.
 * **_mythicPlus.lua_** (!!) contains functionalities for M+, timer etc.
+* **_equipment.lua_** (!!) contains functionalities regarding equipment.
+* **_ClassHelper.lua_** (!!) contains notifiers for class buffs/spells.
 
 _(!): This has not yet been fully implemented._
 _(!!): This is not implemented._
