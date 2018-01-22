@@ -15,6 +15,7 @@ ChallengeFrame:SetScript("OnEvent", function(self, event, ...)
 	if (event == "CHALLENGE_MODE_START") then
 
 		DeathCountFrame:RegisterEvent("COMBAT_LOG_UNFILTERED")
+		DeathCountFrame:SetScript("OnEvent", DeathCountFrame_OnEvent)
 
 	elseif (event == "CHALLENGE_MODE_COMPLETED") then
 	
@@ -22,7 +23,8 @@ ChallengeFrame:SetScript("OnEvent", function(self, event, ...)
 		KEYSTONE_ACTIVE = false
 		
 	elseif (event == "WORLD_STATE_TIMER_START") then
-	
+		local mapID = C_ChallengeMode.GetActiveChallengeMapID()
+		local name, _, timeLimit, _ = C_ChallengeMode.GetMapInfo(mapID)
 		local ksLvl, affixIDs, charged = C_ChallengeMode.GetActiveKeystoneInfo();
 		
 		print("Mythic keystone started. Good luck!")
@@ -36,7 +38,7 @@ ChallengeFrame:SetScript("OnEvent", function(self, event, ...)
 	end
 end)
 
-DeathCountFrame:SetScript("OnEvent", function(self, event, ...)
+function DeathCountFrame_OnEvent(self, event, ...)
 	local timestamp, type, hideCaster, sourceGUID, sourceName, 
 		sourceFlags, sourceRaidFlags, destGUID, destName, destFlags, destRaidFlags = ...
 		
@@ -47,9 +49,7 @@ DeathCountFrame:SetScript("OnEvent", function(self, event, ...)
 		end
 	end
 
-end)
-
-
+end
 
 
 
