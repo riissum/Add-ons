@@ -8,15 +8,30 @@ ClassHelperFrame:RegisterEvent("PLAYER_LOGIN")
 ClassHelperFrame:SetScript("OnEvent", function(self, ...) 
 		local _, engClass, _ = UnitClass("player")
 		ClassFrame = CreateFrame("Frame")
+		local currentSpec = GetSpecialization()
+		local currentSpecName = currentSpec and select(2, GetSpecializationInfo(currentSpec)) or "None"
 
 		if (engClass == "PRIEST") then
-			print("|cff00daecClassHelper: |cff00ff00OK. |cffffffff(Priest)")
+		
+			print("|cff00daecClassHelper: |cff00ff00OK. |cffffffff("..currentSpecName.." Priest)")
 			ACTIVE_BUFFS = { Voidform=0 }
 			ClassFrame:RegisterEvent("UNIT_AURA","player")
 			ClassFrame:SetScript("OnEvent", PriestHelper)
+			
 		elseif (engClass == "PALADIN") then
-			print("|cff00daecClassHelper: |cff00ff00OK. |cffffffff(Paladin)")
+		
+			print("|cff00daecClassHelper: |cff00ff00OK. |cffffffff("..currentSpecName.." Paladin)")
 			ClassFrame:SetScript("OnUpdate", function(self, sinceLastUpdate) PaladinHelperBuffs(sinceLastUpdate); end)
+			
+		elseif (engClass == "DRUID") then
+		
+			print("|cff00daecClassHelper: |cff00ff00OK. |cffffffff("..currentSpecName.." Druid)")
+			if (currentSpecName == "Feral") then
+				ClassFrame:RegisterEvent("UNIT_POWER")
+				ClassFrame:SetScript("OnEvent", DruidHelper)
+				ClassFrame:SetScript("OnUpdate", function(self, sinceLastUpdate) DruidHelperNotify(sinceLastUpdate); end)
+			end
+			
 		else
 			print("|cff00daecClassHelper: Terminated.")
 			return
@@ -25,26 +40,53 @@ ClassHelperFrame:SetScript("OnEvent", function(self, ...)
 
 end)
 
-local timeSinceLastBuffAnnounce = { A=1000, B=1000 }
+local timeSinceLastAnnounce = { A=1000, B=1000 }
+local alertPower = false
+
+function DruidHelper(self, event, ...)
+
+	-- Helper for Feral, Checks for 5 combopoints
+	if (event == "UNIT_POWER") then
+		local comboPoints = UnitPower("player", 4)
+		if(comboPoints == 5) then
+			alertPower = true
+		else
+			alertPower = false
+		end
+	end
+
+end
+
+function DruidHelperNotify(sinceLastUpdate)
+	-- timeSinceLastAnnounce[A] = UNIT_POWER
+	timeSinceLastAnnounce[A] = timeSinceLastAnnounce[A] + sinceLastUpdate
+	local willPlay, soundHandle
+	
+	if (timeSinceLastAnnounce[A] >= 3 and alertPower) then
+		willPlay, soundHandle = PlaySoundFile("Interface\\AddOns\\git_Mads\\sounds\\Growl.ogg")
+	else
+		StopSound(soundHandle)
+	end
+end
 
 function PaladinHelperBuffs(SLU) 
 	local ACTIVE_BUFFS = { A="Greater Blessing of Wisdom", B="Greater Blessing of Kings" }
 	
 	for k,v in pairs(ACTIVE_BUFFS) do
 		local _, _, _, count = UnitBuff("player", v)
-		timeSinceLastBuffAnnounce[k] = timeSinceLastBuffAnnounce[k] + SLU
+		timeSinceLastAnnounce[k] = timeSinceLastAnnounce[k] + SLU
 		local tt
 		if (count) then
-			if (timeSinceLastBuffAnnounce[k] >= 60) then
+			if (timeSinceLastAnnounce[k] >= 60) then
 				tt = date("[%H:%M]", time())
 				print(tt..": "..v.." Buff ok.")
-				timeSinceLastBuffAnnounce[k] = 0
+				timeSinceLastAnnounce[k] = 0
 			end
 		elseif (count == nil) then
-			if (timeSinceLastBuffAnnounce[k] >= 60) then
+			if (timeSinceLastAnnounce[k] >= 60) then
 				tt = date("[%H:%M]", time())
 				print(tt..": "..v.." Buff missing.")
-				timeSinceLastBuffAnnounce[k] = 0
+				timeSinceLastAnnounce[k] = 0
 			end
 		end
 	end
