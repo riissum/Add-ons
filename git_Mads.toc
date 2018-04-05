@@ -9,6 +9,8 @@ ui.xml
 startup.lua
 spellAnn.lua
 mythicPlus.lua
+mythicPlusUI.xml
+mythicPlusUI.lua
 equipment.lua
 arena.lua
 slashCmd.lua

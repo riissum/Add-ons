@@ -1,0 +1,123 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Frame name="KeystoneFrame" parent="UIParent" toplevel="true" enableMouse="true" hidden="true">
+		<Size>
+			<AbsDimension x="300" y="300" />
+		</Size>
+		<Anchors>
+			<Anchor point="TOPLEFT" />
+		</Anchors>
+		<Layers>
+			<Layer>
+				<Texture>
+					<Size x="100" y="100" />
+					<Color a="0.5" r="1" g="1" b="1" />
+				</Texture>
+				<FontString name="$parent_DungeonString" font="Fonts\FRIZQT__.TTF" text="Vindicaar" justifyH="LEFT" justifyV="TOP">
+					<Color r="1" g="0.8" b="1" a="1"/>
+					<FontHeight val="24"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" x="20" y="-20" />
+					</Anchors>
+					<Shadow>
+						<Offset x="1" y="1" />
+						<Color r="0" g="0" b="0"/>
+					</Shadow>
+				</FontString>
+				<FontString name="$parent_LevelString" font="Fonts\FRIZQT__.TTF" text="Level 14" justifyH="LEFT" justifyV="TOP">
+					<Color r="1" g="0.8" b="1" a="1"/>
+					<FontHeight val="18"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" x="25" y="-44" />
+					</Anchors>
+					<Shadow>
+						<Offset x="1" y="1" />
+						<Color r="0" g="0" b="0"/>
+					</Shadow>
+				</FontString>
+				<FontString name="$parent_NextLevelString" font="Fonts\FRIZQT__.TTF" text="Level 14" justifyH="LEFT" justifyV="TOP">
+					<Color r="1" g="0.8" b="1" a="1"/>
+					<FontHeight val="18"/>
+					<Anchors>
+						<Anchor point="TOPRIGHT" x="-125" y="-44" />
+					</Anchors>
+					<Shadow>
+						<Offset x="1" y="1" />
+						<Color r="0" g="0" b="0"/>
+					</Shadow>
+				</FontString>
+				<Texture>
+					<Size x="30" y="30" />
+					<Color a="0.5" r="0" g="1" b="0" />
+				</Texture>
+				<FontString name="$parent_TimeString" font="Fonts\FRIZQT__.TTF" text="N/A" justifyH="LEFT" justifyV="TOP">
+					<Color r="1" g="0.8" b="1" a="1"/>
+					<FontHeight val="18"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" x="25" y="-62" />
+					</Anchors>
+					<Shadow>
+						<Offset x="1" y="1" />
+						<Color r="0" g="0" b="0"/>
+					</Shadow>
+				</FontString>
+				<FontString name="$parent_TimeMark3String" font="Fonts\FRIZQT__.TTF" text="+3 > 21:00" justifyH="LEFT" justifyV="TOP">
+					<Color r="1" g="0.8" b="1" a="1"/>
+					<FontHeight val="18"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" x="25" y="-80" />
+					</Anchors>
+					<Shadow>
+						<Offset x="1" y="1" />
+						<Color r="0" g="0" b="0"/>
+					</Shadow>
+				</FontString>
+				<FontString name="$parent_TimeMark2String" font="Fonts\FRIZQT__.TTF" text="+2 > 16:00" justifyH="LEFT" justifyV="TOP">
+					<Color r="1" g="0.8" b="1" a="1"/>
+					<FontHeight val="18"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" x="25" y="-98" />
+					</Anchors>
+					<Shadow>
+						<Offset x="1" y="1" />
+						<Color r="0" g="0" b="0"/>
+					</Shadow>
+				</FontString>
+				<FontString name="$parent_TimeMark1String" font="Fonts\FRIZQT__.TTF" text="+1 > 8:00" justifyH="LEFT" justifyV="TOP">
+					<Color r="1" g="0.8" b="1" a="1"/>
+					<FontHeight val="18"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" x="25" y="-116" />
+					</Anchors>
+					<Shadow>
+						<Offset x="1" y="1" />
+						<Color r="0" g="0" b="0"/>
+					</Shadow>
+				</FontString>
+				<FontString name="$parent_OverTimeString" font="Fonts\FRIZQT__.TTF" text="OVERTIME" justifyH="LEFT" justifyV="TOP" hidden="true">
+					<Color r="1" g="0" b="0" a="1"/>
+					<FontHeight val="18"/>
+					<Anchors>
+						<Anchor point="TOPRIGHT" x="-85" y="-62" />
+					</Anchors>
+					<Shadow>
+						<Offset x="1" y="1" />
+						<Color r="0" g="0" b="0"/>
+					</Shadow>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Button name="WhoAmI" inherits="UIPanelButtonTemplate" text="Click me!">
+				<Size x="120" y="21"/>
+				<Anchors>
+					<Anchor point="CENTER"/>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						toggleTimeTest();
+					</OnClick>
+				</Scripts>
+			</Button>
+		</Frames>
+	</Frame>
+ </Ui>

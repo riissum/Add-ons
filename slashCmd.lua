@@ -27,6 +27,14 @@ function handler(msg, editbox)
 	elseif (msgList[0] == 'time') then
 		if(msgList[1] == '-p') then
 			printTimeLeft("PARTY")
+		elseif(msgList[1] == '-t') then
+			if(msgList[2] == 's') then
+				KeystoneFrame:Show()
+			elseif(msgList[2] == 'h') then
+				KeystoneFrame:Hide()
+			else
+				KeystoneFrame_TimeString:SetText(msgList[2])
+			end
 		else
 			printTimeLeft()
 		end
