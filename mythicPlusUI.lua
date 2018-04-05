@@ -32,11 +32,11 @@ function timerUpdater(SLU)
 		KeystoneFrame_NextLevelString:SetText("-> "..potentialLvl);
 		
 		
-		--if(OT) then
-		--	KeystoneFrame_TimeString:SetText(OT)
-		--else
-		--	KeystoneFrame_TimeString:SetText(Time1)
-		--end
+		if(OT) then
+			KeystoneFrame_TimeString:SetText(OT)
+		else
+			KeystoneFrame_TimeString:SetText(Time1)
+		end
 	end
 	KeystoneFrame_TimeString:SetText(toTimeFormatMilis(Time1))
 	if(OT) then KeystoneFrame_OverTimeString:Show() end
